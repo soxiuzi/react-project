@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ReactDom from 'react-dom'
-import 'font-awesome/css/font-awesome.min.css'
-import './index.css'
-import './index.scss'
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
+
+// 页面
+import Home from 'page/home/index.jsx'
+
+class App extends Component{
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Redirect from="*" to="/" />
+        </Switch>
+      </Router>
+    )
+  }
+}
 
 ReactDom.render(
-    <div>
-      <i className="fa fa-address-book"></i>
-      <h1>hello react</h1>
-    </div>,
-    document.getElementById('app')
-  );
+  <App />,
+  document.getElementById('app')
+);
