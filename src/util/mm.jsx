@@ -25,8 +25,50 @@ class MUtil {
       });
     });
   }
+  // 跳转登录
   doLogin() {
     window.location.href = '/login?redirect=' + encodeURIComponent(window.location.pathname);
+  }
+  // 获取URL参数
+  getUrlParam(name) {
+    let queryString = window.location.search.split('?')[1] || '';
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+        result = queryString.match(reg);
+    return result ? decodeURIComponent(result[2]) : null;
+
+  }
+  // 错误提示
+  errorTips(errMsg) {
+    alert(errMsg || '好像哪里不对~');
+  }
+  // 存储
+  setStorage(name, data) {
+    let dataType = typeof data;
+    // json对象
+    if(dataType === 'object') {
+      window.localStorage.setItem(name, JSON.stringify(data));
+    }
+    // 基础对象
+    else if(['number', 'string', 'boolean'].indexOf(dataType) >= 0) {
+      window.localStorage.setItem(name, data);
+    }
+    // 其他不支持类型
+    else {
+      alert('该类型不支持本地存储！');
+    }
+  }
+  // 取出存储内容
+  getStorage(name) {
+    let data = window.localStorage.getItem(name);
+    if(data) {
+      return JSON.parse(data);
+    }else {
+      return '';
+    }
+  }
+  // 删除存储内容
+  removeStorage(name) {
+    window.localStorage.removeItem(name);
   }
 }
 
