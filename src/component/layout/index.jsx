@@ -1,5 +1,6 @@
 import React, { Component } from 'React'
 import './theme.css'
+import './index.scss'
 import NavTop from '../nav-top/index.jsx'
 import NavSide from '../nav-side/index.jsx'
 

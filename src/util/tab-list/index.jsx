@@ -31,7 +31,7 @@ class TabList extends Component {
     let listInfo = (
       <tr>
         <td colSpan={this.props.tableHeads.length} className="text-center">
-          {this.state.firstLoading ? '正在加载数据...' : '没有找到相应的结果'}
+          {this.state.isFirstLoading ? '正在加载数据...' : '没有找到相应的结果'}
         </td>
       </tr>
     );
