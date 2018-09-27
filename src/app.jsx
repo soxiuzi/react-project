@@ -1,13 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ReactDom from 'react-dom'
-import 'font-awesome/css/font-awesome.min.css'
-import './index.css'
-import './index.scss'
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
+
+import Layout from 'component/layout/index.jsx'
+
+// 页面
+import Home from 'page/home/index.jsx'
+import ProductRouter from 'page/product/router.jsx'
+import Login from 'page/login/index.jsx'
+import UserList from 'page/user/index.jsx'
+import ErrorPage from 'page/error/index.jsx'
+
+class App extends Component{
+  render() {
+    let LayoutRouter = (
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/product" component={ProductRouter} />
+          <Route path="/product-category" component={Home} />
+          <Route path="/order" component={Home} />
+          <Route path="/user/index" component={UserList} />
+          <Redirect exact from="/user" to="/user/index" />
+          <Route component={ErrorPage} />
+        </Switch>
+      </Layout>
+    );
+    return (
+      <Router>
+        <Switch>
+          <Route path="/login" component={ Login } />
+          <Route path="/" render={props => LayoutRouter} />
+        </Switch>
+      </Router>
+    )
+  }
+}
 
 ReactDom.render(
-    <div>
-      <i className="fa fa-address-book"></i>
-      <h1>hello react</h1>
-    </div>,
-    document.getElementById('app')
-  );
+  <App />,
+  document.getElementById('app')
+);
