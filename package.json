@@ -1,36 +1,22 @@
 {
   "name": "react-project",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "a react project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-=======
   "description": "---",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node_modules/.bin/webpack-dev-server",
     "build": "node_modules/.bin/webpack -p"
->>>>>>> branch
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/soxiuzi/react-project.git"
   },
-<<<<<<< HEAD
-  "author": "soxiuzi",
-=======
   "author": "",
->>>>>>> branch
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/soxiuzi/react-project/issues"
   },
-<<<<<<< HEAD
-  "homepage": "https://github.com/soxiuzi/react-project#readme"
-=======
   "homepage": "https://github.com/soxiuzi/react-project#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -56,5 +42,4 @@
     "react-router-dom": "^4.2.2",
     "simditor": "^2.3.6"
   }
->>>>>>> branch
 }
